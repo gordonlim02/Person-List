@@ -1,11 +1,16 @@
-# My Personal Project
+# NamesDB
 
-## A subtitle
+## Why NamesDB
 
-A *bulleted* list:
-- item 1
-- item 2
-- item 3
+We have all had that moment of recognizing someone, 
+but we just can't remember their name. Then,
+we have to awkwardly ask, "Sorry, what's your name again?" 
+If there is a simple application to write down names, then this
+kind of situation would happen a lot less often.
 
-An example of text with **bold** and *italic* fonts.  Note that the IntelliJ markdown previewer doesn't seem to render 
-the bold and italic fonts correctly but they will appear correctly on GitHub.
+## What you can do with NamesDB
+
+With *NamesDB*, you can easily access and store all the names and 
+information of people you have met. 
+**Anyone** who finds it hard to remember names of other
+people can be a user of *NamesDB*.
