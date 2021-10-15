@@ -19,7 +19,7 @@ people can be a user of *NamesDB*.
 
 - As a user, I want to be able to add the name and information of a person to the
 database
-- As a user, I want to be able to view the name and information of all added persons
+- As a user, I want to be able to view the name and information of an added person
 on the database
 - As a user, I want to be able to modify the name and information of a person on the
   database
