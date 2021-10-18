@@ -6,15 +6,17 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PersonTest {
+    public PersonList sampleList;
     public Person dummy;
 
     @BeforeEach
-    void createDummy() {
+    void init() {
+        sampleList = new PersonList();
         dummy = new Person("John Doe", "male", "brown", "CPSC 210");
     }
 
     @Test
-    void testPerson() {
+    void testPersonConstructor() {
         assertEquals( "John Doe", dummy.getName());
         assertEquals( "male", dummy.getGender());
         assertEquals( "brown", dummy.getHairColor());
@@ -31,26 +33,16 @@ class PersonTest {
     }
 
     @Test
-    void testDeletePerson() {
-        dummy.deletePerson();
-        assertNull(dummy.getName());
-        assertNull(dummy.getGender());
-        assertNull(dummy.getHairColor());
-        assertNull(dummy.getWhereMet());
-    }
-
-    @Test
-    void testIsNull() {
-        assertFalse(dummy.isNull());
-        dummy.deletePerson();
-        assertTrue(dummy.isNull());
+    void samePersonTest() {
+        Person dummy2 = new Person("John Doe", "male", "brown", "CPSC 210");
+        Person dummy3 = new Person("John Do", "male", "brown", "CPSC 210");
+        assertTrue(dummy.samePersonAs(dummy2));
+        assertFalse(dummy.samePersonAs(dummy3));
     }
 
     @Test
     void testPersonString() {
         assertEquals("Name: John Doe | Gender: male | Hair color: brown" +
                 " | Place of encounter: CPSC 210", dummy.personString());
-        dummy.deletePerson();
-        assertEquals("", dummy.personString());
     }
 }
