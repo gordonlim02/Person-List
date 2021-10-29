@@ -37,8 +37,14 @@ class PersonTest {
     void testSamePerson() {
         Person dummy2 = new Person("John Doe", "male", "brown", "CPSC 210");
         Person dummy3 = new Person("John Do", "male", "brown", "CPSC 210");
+        Person dummy4 = new Person("John Doe", "female", "brown", "CPSC 210");
+        Person dummy5 = new Person("John Doe", "male", "blonde", "CPSC 210");
+        Person dummy6 = new Person("John Doe", "male", "brown", "CPSC 121");
         assertTrue(dummy.samePersonAs(dummy2));
         assertFalse(dummy.samePersonAs(dummy3));
+        assertFalse(dummy.samePersonAs(dummy4));
+        assertFalse(dummy.samePersonAs(dummy5));
+        assertFalse(dummy.samePersonAs(dummy6));
     }
 
     @Test

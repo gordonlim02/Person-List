@@ -45,8 +45,11 @@ public class PersonListTest {
 
     @Test
     void testDeletePerson() {
+        personList.addPerson(dummy2);
         personList.addPerson(dummy);
         personList.deletePerson(dummy);
+        assertFalse(personList.isEmpty());
+        personList.deletePerson(dummy2);
         assertTrue(personList.isEmpty());
     }
 
