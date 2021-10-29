@@ -24,3 +24,5 @@ on the database
 - As a user, I want to be able to modify the name and information of a person on the
   database
 - As a user, I want to be able to delete a person on the database
+- As a user, I want to be able to save my list of persons to file
+- As a user, I want to be able to load my list of persons from file
