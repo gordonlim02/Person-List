@@ -1,0 +1,16 @@
+{
+  "personList": [
+    {
+      "gender": "male",
+      "name": "John Doe",
+      "place of encounter": "CPSC 210",
+      "hair color": "brown"
+    },
+    {
+      "gender": "female",
+      "name": "Jane Doe",
+      "place of encounter": "CPSC 121",
+      "hair color": "black"
+    }
+  ]
+}

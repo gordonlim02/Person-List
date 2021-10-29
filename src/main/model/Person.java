@@ -1,9 +1,12 @@
 package model;
 
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.lang.reflect.Field;
 
 // Represents a person with a name, gender, hair color, and where the user has met the person.
-public class Person {
+public class Person implements Writable {
     private String name;        // name of the person
     private String gender;      // gender of the person
     private String hairColor;   // hair color of the person
@@ -45,22 +48,27 @@ public class Person {
 
     // EFFECTS: returns true if this person has the same fields as person p
     public boolean samePersonAs(Person newPerson) {
-        Field[] fields = this.getClass().getDeclaredFields();
-        for (Field f : fields) {
-            try {
-                if (!(f.get(this) == f.get(newPerson))) {
-                    return false;
-                }
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            }
-        }
-        return true;
+        boolean sameName = this.getName().equals(newPerson.getName());
+        boolean sameGender = this.getGender().equals(newPerson.getGender());
+        boolean sameHairColor = this.getHairColor().equals(newPerson.getHairColor());
+        boolean sameWhereMet = this.getWhereMet().equals(newPerson.getWhereMet());
+        return (sameName && sameGender && sameHairColor && sameWhereMet);
     }
 
     // EFFECTS: returns a string that contains the information of the Person object
     public String personString() {
         return ("Name: " + name + " | Gender: " + gender + " | Hair color: "
                 + hairColor + " | Place of encounter: " + whereMet);
+    }
+
+    // Copied and modified from the JsonSerializationDemo project
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("gender", gender);
+        json.put("hair color", hairColor);
+        json.put("place of encounter", whereMet);
+        return json;
     }
 }

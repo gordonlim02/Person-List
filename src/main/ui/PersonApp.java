@@ -2,24 +2,33 @@ package ui;
 
 import model.Person;
 import model.PersonList;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 // Text-based UI of the NamesDB Application
 public class PersonApp {
+    private static final String JSON_STORE = "./data/personList.json";
     private Scanner scanner;
     private Person person;
     private PersonList personList;
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
 
     // EFFECTS: runs the UI of the application
     public PersonApp() {
         scanner = new Scanner(System.in);
         personList = new PersonList();
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
         while (true) {
             printPersonList();
             mainInputPrompt();
             String input = scanner.nextLine();
-            if (input.equals("4")) {
+            if (input.equals("6")) {
                 break;
             }
             chooseAction(input);
@@ -29,25 +38,38 @@ public class PersonApp {
     // EFFECTS: prints the main input prompt
     private void mainInputPrompt() {
         System.out.println();
-        System.out.println("Please choose an operation: (Enter a number from 1 to 4)");
+        System.out.println("Please choose an operation: (Enter a number from 1 to 6)");
         System.out.println("1. Add a person");
         System.out.println("2. Edit a person");
         System.out.println("3. Delete a person");
-        System.out.println("4. Quit this application");
+        System.out.println("4. Save the current list of persons");
+        System.out.println("5. Load the saved list of persons");
+        System.out.println("6. Quit this application");
     }
 
     // REQUIRES: a string that is not "4"
     // EFFECTS: determines the action to carry out
     public void chooseAction(String input) {
-        if (input.equals("1")) {
-            addPerson();
-        } else if (input.equals("2")) {
-            editPerson();
-        } else if (input.equals("3")) {
-            deletePerson();
-        } else {
-            System.out.println();
-            System.out.println("That was not a valid input. Please try again.");
+        switch (input) {
+            case "1":
+                addPerson();
+                break;
+            case "2":
+                editPerson();
+                break;
+            case "3":
+                deletePerson();
+                break;
+            case "4":
+                savePersonList();
+                break;
+            case "5":
+                loadPersonList();
+                break;
+            default:
+                System.out.println();
+                System.out.println("That was not a valid input. Please try again.");
+                break;
         }
     }
 
@@ -83,7 +105,7 @@ public class PersonApp {
         System.out.println("List of all persons");
         System.out.println("--------------------");
         if (personList.isEmpty()) {
-            System.out.println("There is currently 0 person in the database.");
+            System.out.println("There is currently 0 person to be displayed.");
         }
         for (String s : personList.personListString()) {
             System.out.println(s);
@@ -104,6 +126,7 @@ public class PersonApp {
         person.modifyPerson(name, gender, hairColor, whereMet);
     }
 
+    // EFFECTS: delete a person on the personList
     public void deletePerson() {
         Person person = choosePerson();
         if (person == null) {
@@ -118,5 +141,29 @@ public class PersonApp {
         System.out.println();
         System.out.println(prompt);
         return scanner.nextLine();
+    }
+
+    // Copied and modified from the JsonSerializationDemo project
+    // EFFECTS: saves the personList to file
+    private void savePersonList() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(personList);
+            jsonWriter.close();
+            System.out.println("The list of persons has been saved to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads personList from file
+    private void loadPersonList() {
+        try {
+            personList = jsonReader.read();
+            System.out.println("The list of persons has been retrieved from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
+        }
     }
 }

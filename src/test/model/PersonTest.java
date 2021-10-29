@@ -1,5 +1,6 @@
 package model;
 
+import org.json.JSONObject;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -33,7 +34,7 @@ class PersonTest {
     }
 
     @Test
-    void samePersonTest() {
+    void testSamePerson() {
         Person dummy2 = new Person("John Doe", "male", "brown", "CPSC 210");
         Person dummy3 = new Person("John Do", "male", "brown", "CPSC 210");
         assertTrue(dummy.samePersonAs(dummy2));
@@ -44,5 +45,14 @@ class PersonTest {
     void testPersonString() {
         assertEquals("Name: John Doe | Gender: male | Hair color: brown" +
                 " | Place of encounter: CPSC 210", dummy.personString());
+    }
+
+    @Test
+    void testToJson() {
+        JSONObject dummyJson = dummy.toJson();
+        assertEquals(dummyJson.getString("name"), "John Doe");
+        assertEquals(dummyJson.getString("gender"), "male");
+        assertEquals(dummyJson.getString("hair color"), "brown");
+        assertEquals(dummyJson.getString("place of encounter"), "CPSC 210");
     }
 }
