@@ -1,6 +1,26 @@
-{"personList": [{
-    "gender": "b",
-    "name": "b",
-    "place of encounter": "b",
-    "hair color": "b"
-}]}
+{"personList": [
+    {
+        "gender": "Male",
+        "name": "Bob",
+        "place of encounter": "Tim Hortons",
+        "hair color": "Black"
+    },
+    {
+        "gender": "Female",
+        "name": "Jane",
+        "place of encounter": "ICICS Building",
+        "hair color": "Brown"
+    },
+    {
+        "gender": "Male",
+        "name": "John",
+        "place of encounter": "The Nest",
+        "hair color": "Blonde"
+    },
+    {
+        "gender": "Female",
+        "name": "Selena",
+        "place of encounter": "Love Song",
+        "hair color": "Brown"
+    }
+]}

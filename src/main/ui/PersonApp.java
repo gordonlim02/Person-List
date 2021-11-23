@@ -166,4 +166,8 @@ public class PersonApp {
             System.out.println("Unable to read from file: " + JSON_STORE);
         }
     }
+
+    public PersonList getPersonList() {
+        return personList;
+    }
 }

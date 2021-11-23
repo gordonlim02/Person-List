@@ -57,8 +57,8 @@ public class Person implements Writable {
 
     // EFFECTS: returns a string that contains the information of the Person object
     public String personString() {
-        return ("Name: " + name + " | Gender: " + gender + " | Hair color: "
-                + hairColor + " | Place of encounter: " + whereMet);
+        return (name + " | " + gender + " | "
+                + hairColor + " | " + whereMet);
     }
 
     // Copied and modified from the JsonSerializationDemo project
