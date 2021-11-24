@@ -13,12 +13,14 @@ public class PersonListTest {
     public PersonList personList;
     public Person dummy;
     public Person dummy2;
+    public Person dummy3;
 
     @BeforeEach
     void init() {
         personList = new PersonList();
         dummy = new Person("John Doe", "male", "brown", "CPSC 210");
         dummy2 = new Person("Jane Doe", "female", "black", "CPSC 121");
+        dummy3 = new Person("Jack Doe", "male", "blonde", "CPSC 121");
     }
 
     @Test
@@ -75,9 +77,9 @@ public class PersonListTest {
     @Test
     void testChangePerson() {
         personList.addPerson(dummy);
-        personList.changePerson(dummy, dummy2);
-        System.out.println(personList.personListString());
-        assertFalse(personList.getPersonList().contains(dummy));
-        assertTrue((personList.getPersonList().contains(dummy2)));
+        personList.addPerson(dummy2);
+        personList.changePerson(dummy2, dummy3);
+        assertFalse(personList.getPersonList().contains(dummy2));
+        assertTrue((personList.getPersonList().contains(dummy3)));
     }
 }
