@@ -26,3 +26,11 @@ on the database
 - As a user, I want to be able to delete a person on the database
 - As a user, I want to be able to save my list of persons to file
 - As a user, I want to be able to load my list of persons from file
+
+## Phase 4: Task 2
+Wed Nov 24 11:43:23 PST 2021  
+Added a person named Anna  
+Wed Nov 24 11:43:49 PST 2021  
+Edited a person originally named John  
+Wed Nov 24 11:44:02 PST 2021  
+Deleted a person named Jane

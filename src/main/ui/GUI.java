@@ -1,5 +1,7 @@
 package ui;
 
+import model.EventLog;
+import model.LogPrinter;
 import model.Person;
 import model.PersonList;
 import persistence.JsonReader;
@@ -8,6 +10,8 @@ import persistence.JsonWriter;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -129,6 +133,14 @@ public class GUI {
         frame.setLocation(x, y);
 
         showPopUpIntroduction();
+
+        frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                LogPrinter logPrinter = new LogPrinter();
+                e.getWindow().dispose();
+            }
+        });
     }
 
     // MODIFIES: personList, tableModel
@@ -201,4 +213,6 @@ public class GUI {
         popUpMeme.setLocation(x, y);
         popUpMeme.setVisible(true);
     }
+
+
 }

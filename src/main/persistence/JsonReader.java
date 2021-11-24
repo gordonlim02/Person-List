@@ -65,6 +65,6 @@ public class JsonReader {
         String hairColor = jsonObject.getString("hair color");
         String whereMet = jsonObject.getString("place of encounter");
         Person person = new Person(name, gender, hairColor, whereMet);
-        personList.addPerson(person);
+        personList.getPersonList().add(person);
     }
 }

@@ -31,6 +31,7 @@ public class PersonList extends ArrayList<Person> implements Writable {
             }
         }
         personList.add(newPerson);
+        EventLog.getInstance().logEvent(new Event("Added a person named " + newPerson.getName()));
         return true;
     }
 
@@ -55,6 +56,7 @@ public class PersonList extends ArrayList<Person> implements Writable {
                 iterator.remove();
             }
         }
+        EventLog.getInstance().logEvent(new Event("Deleted a person named " + person.getName()));
     }
 
     // EFFECTS: returns the information of the persons in PersonList as a String ArrayList
@@ -74,6 +76,7 @@ public class PersonList extends ArrayList<Person> implements Writable {
                 personList.set(personList.indexOf(oldPerson), newPerson);
             }
         }
+        EventLog.getInstance().logEvent(new Event("Edited a person originally named " + oldPerson.getName()));
     }
 
     // EFFECTS: returns true if personList is empty, false otherwise
