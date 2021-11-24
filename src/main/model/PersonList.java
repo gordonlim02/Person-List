@@ -72,7 +72,6 @@ public class PersonList extends ArrayList<Person> implements Writable {
         for (Person person : personList) {
             if (person == oldPerson) {
                 personList.set(personList.indexOf(oldPerson), newPerson);
-                break;
             }
         }
     }
