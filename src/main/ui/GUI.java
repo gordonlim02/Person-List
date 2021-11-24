@@ -123,6 +123,12 @@ public class GUI {
         // finalize the JFrame
         frame.pack();
         frame.setSize(600, 600);
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        int x = (screenSize.width - frame.getSize().width) / 2;
+        int y = (screenSize.height - frame.getSize().height) / 2;
+        frame.setLocation(x, y);
+
+        showPopUpIntroduction();
     }
 
     // MODIFIES: personList, tableModel
@@ -179,5 +185,20 @@ public class GUI {
         boolean sameWhereMet =
                 tableModel.getValueAt(table.getSelectedRow(), 3).equals(person.getWhereMet());
         return (sameName && sameGender && sameHairColor && sameWhereMet);
+    }
+
+    // copied and modified from https://stackoverflow.com/questions/29636217/how-to-have-an-image-pop-up-in-java
+    // EFFECTS: show a pop-up window with the introduction image
+    private void showPopUpIntroduction() {
+        JFrame popUpMeme = new JFrame("Don't let this happen to you again!");
+        ImageIcon memeImage = new ImageIcon("data/forgetNameMeme.jpg");
+        JLabel memeLabel = new JLabel(memeImage);
+        popUpMeme.add(memeLabel);
+        popUpMeme.setSize(memeImage.getIconWidth(), memeImage.getIconHeight());
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        int x = (screenSize.width - popUpMeme.getSize().width) / 2;
+        int y = (screenSize.height - popUpMeme.getSize().height) / 2;
+        popUpMeme.setLocation(x, y);
+        popUpMeme.setVisible(true);
     }
 }
