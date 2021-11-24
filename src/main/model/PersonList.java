@@ -66,6 +66,17 @@ public class PersonList extends ArrayList<Person> implements Writable {
         return resultString;
     }
 
+    // MODIFIES: personList
+    // EFFECTS: change the oldPerson in the personList to newPerson
+    public void changePerson(Person oldPerson, Person newPerson) {
+        for (Person person : personList) {
+            if (person == oldPerson) {
+                personList.set(personList.indexOf(oldPerson), newPerson);
+                break;
+            }
+        }
+    }
+
     // EFFECTS: returns true if personList is empty, false otherwise
     public boolean isEmpty() {
         return personList.isEmpty();

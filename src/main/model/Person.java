@@ -46,19 +46,19 @@ public class Person implements Writable {
         this.whereMet = whereMet;
     }
 
-    // EFFECTS: returns true if this person has the same fields as person p
-    public boolean samePersonAs(Person newPerson) {
-        boolean sameName = this.getName().equals(newPerson.getName());
-        boolean sameGender = this.getGender().equals(newPerson.getGender());
-        boolean sameHairColor = this.getHairColor().equals(newPerson.getHairColor());
-        boolean sameWhereMet = this.getWhereMet().equals(newPerson.getWhereMet());
+    // EFFECTS: returns true if this person has the same fields as another person
+    public boolean samePersonAs(Person anotherPerson) {
+        boolean sameName = this.getName().equals(anotherPerson.getName());
+        boolean sameGender = this.getGender().equals(anotherPerson.getGender());
+        boolean sameHairColor = this.getHairColor().equals(anotherPerson.getHairColor());
+        boolean sameWhereMet = this.getWhereMet().equals(anotherPerson.getWhereMet());
         return (sameName && sameGender && sameHairColor && sameWhereMet);
     }
 
     // EFFECTS: returns a string that contains the information of the Person object
     public String personString() {
-        return (name + " | " + gender + " | "
-                + hairColor + " | " + whereMet);
+        return ("Name: " + name + " | Gender: " + gender + " | Hair color: "
+                + hairColor + " | Place of encounter: " + whereMet);
     }
 
     // Copied and modified from the JsonSerializationDemo project

@@ -71,4 +71,13 @@ public class PersonListTest {
         jsonObject.put("personList", jsonArray);
         personList.toJson().similar(jsonObject);
     }
+
+    @Test
+    void testChangePerson() {
+        personList.addPerson(dummy);
+        personList.changePerson(dummy, dummy2);
+        System.out.println(personList.personListString());
+        assertFalse(personList.getPersonList().contains(dummy));
+        assertTrue((personList.getPersonList().contains(dummy2)));
+    }
 }

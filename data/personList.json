@@ -1,1 +1,20 @@
-{"personList": []}
+{"personList": [
+    {
+        "gender": "c",
+        "name": "c",
+        "place of encounter": "c",
+        "hair color": "c"
+    },
+    {
+        "gender": "d",
+        "name": "d",
+        "place of encounter": "d",
+        "hair color": "d"
+    },
+    {
+        "gender": "g",
+        "name": "g",
+        "place of encounter": "g",
+        "hair color": "g"
+    }
+]}
