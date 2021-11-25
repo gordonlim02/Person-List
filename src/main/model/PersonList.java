@@ -85,6 +85,7 @@ public class PersonList extends ArrayList<Person> implements Writable {
     }
 
     // Copied and modified from the JsonSerializationDemo project
+    // EFFECTS: returns a JSONObject that contains a list of persons
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();

@@ -1,6 +1,5 @@
 package ui;
 
-import model.EventLog;
 import model.LogPrinter;
 import model.Person;
 import model.PersonList;
@@ -15,6 +14,7 @@ import java.awt.event.WindowEvent;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+// The GUI of the namesDB application
 public class GUI {
     private PersonList personList = new PersonList();
     private final DefaultTableModel tableModel;

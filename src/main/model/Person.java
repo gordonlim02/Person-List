@@ -3,8 +3,6 @@ package model;
 import org.json.JSONObject;
 import persistence.Writable;
 
-import java.lang.reflect.Field;
-
 // Represents a person with a name, gender, hair color, and where the user has met the person.
 public class Person implements Writable {
     private String name;        // name of the person
@@ -62,6 +60,7 @@ public class Person implements Writable {
     }
 
     // Copied and modified from the JsonSerializationDemo project
+    // EFFECTS: returns a JSONObject that contains the existing fields
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
