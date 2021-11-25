@@ -34,3 +34,9 @@ Wed Nov 24 11:43:49 PST 2021
 Edited a person originally named John  
 Wed Nov 24 11:44:02 PST 2021  
 Deleted a person named Jane
+
+## Phase 4: Task 3
+If I had more time to work on the project, I would create fields of LogPrinter,
+JsonReader, and JsonWriter in the GUI class. Adding those fields to the GUI class
+makes it easier for methods in the GUI class to utilize the classes, without
+creating unnecessary instances of the objects.
