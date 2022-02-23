@@ -1,14 +1,6 @@
-{"personList": [
-    {
-        "gender": "Male",
-        "name": "John",
-        "place of encounter": "Browns",
-        "hair color": "Blonde"
-    },
-    {
-        "gender": "Female",
-        "name": "Anna",
-        "place of encounter": "CPSC 210",
-        "hair color": "Black"
-    }
-]}
+{"personList": [{
+    "gender": "c",
+    "name": "c",
+    "place of encounter": "c",
+    "hair color": "c"
+}]}
